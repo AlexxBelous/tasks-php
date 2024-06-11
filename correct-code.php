@@ -22,7 +22,9 @@
 
 
 
-$parsed_url = parse_url($url);
-$path = isset($parsed_url['path']) ? $parsed_url['path'] : 'element do not found';
+function getQueryString($url) {
+    $parsed_url = parse_url($url);
+    return isset($parsed_url['query']) ? $parsed_url['query'] : '';
+}
 
-echo $path;
+echo getQueryString($url);
