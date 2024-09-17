@@ -8,3 +8,9 @@ function dd($value)
     die();
 }
 
+function dump($value)
+{
+    echo '<pre>';
+    print_r($value);
+    echo '</pre>';
+}
