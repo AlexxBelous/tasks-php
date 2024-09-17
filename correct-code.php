@@ -22,7 +22,18 @@
 
 
 
-$parsed_url = parse_url($url);
-$path = isset($parsed_url['path']) ? $parsed_url['path'] : 'element do not found';
+function replaceWords(string $inputComment, array $badWords): string
+{
+    if (empty($badWords) || empty($inputComment)) {
+        return $inputComment;
+    }
 
-echo $path;
+    usort($badWords, fn($a, $b) => strlen($b) <=> strlen($a));
+
+    foreach ($badWords as $badWord) {
+        $replacement = str_repeat('*', strlen($badWord));
+        $inputComment = str_replace($badWord, $replacement, $inputComment);
+    }
+
+    return $inputComment;
+}
