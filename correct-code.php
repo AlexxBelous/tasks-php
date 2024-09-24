@@ -24,22 +24,33 @@
 
 
 <?php
-//namespace App\TextProcessor;
-class TextProcessor
+//namespace App\NumberComparator;
+
+class NumberComparator
 {
-    private $text;
+    private array $array1;
+    private array $array2;
+    private array $matchingNumbers = [];
 
-    public function __construct(string $text)
+    public function __construct(array $array1, array $array2)
     {
-        $this->text = $text;
-
+        $this->array1 = $array1;
+        $this->array2 = $array2;
     }
-    public function truncate(int $wordLimit)
+
+    private function findMatches(): void
     {
-        $words = explode(' ', $this->text);
-        if (count($words) > $wordLimit) {
-            $words = array_slice($words, 0, $wordLimit);
+        $this->matchingNumbers = array_intersect($this->array1, $this->array2);
+    }
+
+    public function displayMatches(): void
+    {
+        $this->findMatches();
+        if (!empty($this->matchingNumbers)) {
+            echo "Matching numbers: " . implode(', ', $this->matchingNumbers);
+        } else {
+            echo "No matching numbers found.";
         }
-        return implode(' ', $words) . '...';
     }
 }
+
