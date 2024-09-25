@@ -8,6 +8,11 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 require('src/App/Database/database.php');
 
+$array1 = [1, 3, 5, 7, 9];
+$array2 = [2, 3, 6, 7, 10];
+
+
+
 
 
 
