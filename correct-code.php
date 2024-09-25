@@ -24,33 +24,18 @@
 
 
 <?php
-//namespace App\NumberComparator;
 
-class NumberComparator
+$array1 = [1, 3, 5, 7, 9];
+$array2 = [2, 3, 6, 7, 10];
+
+
+function findMatchingNumbers($array1, $array2)
 {
-    private array $array1;
-    private array $array2;
-    private array $matchingNumbers = [];
-
-    public function __construct(array $array1, array $array2)
-    {
-        $this->array1 = $array1;
-        $this->array2 = $array2;
-    }
-
-    private function findMatches(): void
-    {
-        $this->matchingNumbers = array_intersect($this->array1, $this->array2);
-    }
-
-    public function displayMatches(): void
-    {
-        $this->findMatches();
-        if (!empty($this->matchingNumbers)) {
-            echo "Matching numbers: " . implode(', ', $this->matchingNumbers);
-        } else {
-            echo "No matching numbers found.";
-        }
+    $matchingNumbers = array_intersect($array1, $array2);
+    if (!empty($matchingNumbers)) {
+        echo "Matching numbers: " . implode(", ", $matchingNumbers);
+    } else {
+        echo "No matching numbers found.";
     }
 }
-
+findMatchingNumbers($array1, $array2);
