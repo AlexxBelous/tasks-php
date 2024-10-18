@@ -25,17 +25,30 @@
 
 <?php
 
-$array1 = [1, 3, 5, 7, 9];
-$array2 = [2, 3, 6, 7, 10];
+$a = 10;
+$b = 5;
 
-
-function findMatchingNumbers($array1, $array2)
-{
-    $matchingNumbers = array_intersect($array1, $array2);
-    if (!empty($matchingNumbers)) {
-        echo "Matching numbers: " . implode(", ", $matchingNumbers);
-    } else {
-        echo "No matching numbers found.";
+$operations = [
+    'add' => function ($a, $b) {
+        return $a + $b;
+    },
+    'subtract' => function ($a, $b) {
+        return $a - $b;
+    },
+    'multiply' => function ($a, $b) {
+        return $a * $b;
+    },
+    'divide' => function ($a, $b) {
+        return $b != 0 ? $a / $b : "Error: Division by zero!";
     }
+];
+
+$operation = "add";
+
+if (array_key_exists($operation, $operations)) {
+    $result = call_user_func($operations[$operation], $a, $b);
+    echo "Result: $result";
+} else {
+    echo "Error: Unknown operation!";
 }
-findMatchingNumbers($array1, $array2);
+
