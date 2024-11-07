@@ -24,22 +24,18 @@
 
 
 <?php
-//namespace App\TextProcessor;
-class TextProcessor
-{
-    private $text;
 
-    public function __construct(string $text)
-    {
-        $this->text = $text;
+$existingSlugs = array_column($posts, 'slug');
 
+$slug = $newPost['slug'];
+
+
+if (in_array($slug, $existingSlugs)) {
+    $counter = 1;
+    while (in_array($slug . '-' . $counter, $existingSlugs)) {
+        $counter++;
     }
-    public function truncate(int $wordLimit)
-    {
-        $words = explode(' ', $this->text);
-        if (count($words) > $wordLimit) {
-            $words = array_slice($words, 0, $wordLimit);
-        }
-        return implode(' ', $words) . '...';
-    }
+    $slug = $slug . '-' . $counter;
+    $newPost['slug'] = $slug;
 }
+$posts[] = $newPost;
