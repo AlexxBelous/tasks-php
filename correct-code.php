@@ -23,23 +23,38 @@
 
 
 
+
+
+
+
+
+
+
+
 <?php
-function generateSlug($title)
-{
-    $slug = strtolower(trim(preg_replace('#[^A-Za-z0-9]+#', '-', $title), '-'));
-    return preg_replace('#-+#', '-', $slug);
-}
 
+$allowedDomains = ['example.com', 'mysite.com'];
 
-function addSlugsToPosts(array $posts)
-{
-    foreach ($posts as &$post) {
-        if (empty($post['slug']) && isset($post['title'])) {
-            $post['slug'] = generateSlug($post['title']);
+function filterUrls(array $urls, array $allowedDomains): array {
+    $safeUrls = [];
+    foreach ($urls as $url) {
+        if (str_starts_with($url, 'https://') || str_starts_with($url, 'http://')) {
+
+            foreach ($allowedDomains as $domain) {
+                if (str_contains($url, $domain)) {
+                    $safeUrls[] = $url;
+                    break;
+                }
+            }
         }
     }
-    return $posts;
+
+    return $safeUrls;
 }
 
 
-dump($posts);
+$safeUrls = filterUrls($urls, $allowedDomains);
+
+foreach ($safeUrls as $url) {
+    echo $url . "<br>";
+}
