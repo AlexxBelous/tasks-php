@@ -24,18 +24,22 @@
 
 
 <?php
-
-$existingSlugs = array_column($posts, 'slug');
-
-$slug = $newPost['slug'];
-
-
-if (in_array($slug, $existingSlugs)) {
-    $counter = 1;
-    while (in_array($slug . '-' . $counter, $existingSlugs)) {
-        $counter++;
-    }
-    $slug = $slug . '-' . $counter;
-    $newPost['slug'] = $slug;
+function generateSlug($title)
+{
+    $slug = strtolower(trim(preg_replace('#[^A-Za-z0-9]+#', '-', $title), '-'));
+    return preg_replace('#-+#', '-', $slug);
 }
-$posts[] = $newPost;
+
+
+function addSlugsToPosts(array $posts)
+{
+    foreach ($posts as &$post) {
+        if (empty($post['slug']) && isset($post['title'])) {
+            $post['slug'] = generateSlug($post['title']);
+        }
+    }
+    return $posts;
+}
+
+
+dump($posts);

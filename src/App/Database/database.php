@@ -4,7 +4,7 @@ return [
     [
         "id" => 15,
         "title" => "Exploring the Universe",
-        "slug" => "exploring-the-universe",
+        "slug" => "",
         "excerpt" => "A journey through space and time.",
         "content" => "The universe is vast and mysterious, filled with wonders that go beyond human imagination. From distant galaxies to black holes, each discovery brings new questions and insights."
     ],
@@ -18,14 +18,14 @@ return [
     [
         "id" => 37,
         "title" => "Understanding Artificial Intelligence",
-        "slug" => "understanding-artificial-intelligence",
+        "slug" => "",
         "excerpt" => "An introduction to AI and its applications.",
         "content" => "Artificial intelligence is revolutionizing various industries, from healthcare to finance. By simulating human intelligence, AI enables machines to perform tasks that once required human expertise."
     ],
     [
         "id" => 4,
         "title" => "The Importance of Mental Health",
-        "slug" => "importance-of-mental-health",
+        "slug" => "",
         "excerpt" => "Focusing on well-being in a busy world.",
         "content" => "Mental health is essential for overall well-being. In a fast-paced society, taking care of our mental health is crucial to maintaining balance and finding peace amidst daily challenges."
     ],
@@ -53,7 +53,7 @@ return [
     [
         "id" => 81,
         "title" => "Mastering the Basics of Photography",
-        "slug" => "mastering-basics-of-photography",
+        "slug" => "",
         "excerpt" => "Tips for capturing beautiful photos.",
         "content" => "Photography is an art that requires both technical skills and creativity. Understanding composition, lighting, and timing can turn an ordinary photo into something extraordinary."
     ],
@@ -67,7 +67,7 @@ return [
     [
         "id" => 10,
         "title" => "The Science of Climate Change",
-        "slug" => "science-of-climate-change",
+        "slug" => "",
         "excerpt" => "Understanding the impact of global warming.",
         "content" => "Climate change is a pressing issue affecting ecosystems worldwide. Scientists study its causes and impacts to find solutions for reducing greenhouse gas emissions and protecting the environment."
     ]
