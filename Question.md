@@ -1,5 +1,12 @@
-## Task 14
+## Task 15
 ###### str_starts_with, str_contains, foreach
-#### Напиши функцию например с таким названием - filterUrls, которая будет отфильтровать и выводить только безопасные ссылки, то есть те, которые ведут на домены, начинающиеся с https:// или http:// и принадлежат только разрешённым доменам, например, example.com или mysite.com.
+#### Задача: Написать класс UrlFilter, который фильтрует массив ссылок и возвращает только безопасные ссылки. Ссылка считается безопасной, если она: начинается с протокола https:// или http://. и ведёт на домены, принадлежащие разрешённым (например, example.com или mysite.com).
+#### Ожидаемый результат:
+#### "https://example.com/page",
+#### "http://mysite.com/resource",
+#### "https://example.com/malicious-link",
+#### "https://mysite.com/blog",
+#### "http://example.com/contact"
+
 #### Material
 #### ['example.com', 'mysite.com']
